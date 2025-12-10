@@ -430,12 +430,15 @@
 
     <section class="newsletter">
         <div class="go-square">
-            <div class="go-arrow">→</div>
-            <h2>GO!</h2>
-            <p>Subscribe for exclusive updates, special offers, and seasonal news!</p>
+            <div class="go-arrow">📧</div>
+            <h2>LET US KNOW</h2>
+            <p>Get in touch with us!</p>
             <form class="newsletter-form">
-                <input type="email" placeholder="Enter your email" required>
-                <button type="submit">COLLECT $200 IN SAVINGS</button>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <input type="text" placeholder="Subject" required>
+                <textarea placeholder="Your Message" rows="4" style="padding: 1rem; border: 4px solid #000; border-radius: 8px; font-size: 1rem; font-weight: 600; font-family: inherit; resize: vertical;" required></textarea>
+                <button type="submit">JOIN OUR MAILING LIST</button>
             </form>
         </div>
     </section>
@@ -452,7 +455,7 @@
     <script>
         document.querySelector('.newsletter-form').addEventListener('submit', (e) => {
             e.preventDefault();
-            alert('🎉 Congratulations! You\'ve collected $200! (Thanks for subscribing!)');
+            alert('🎉 Thank you! We\'ll be in touch soon!');
             e.target.reset();
         });
     </script>
