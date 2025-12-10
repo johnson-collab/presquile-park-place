@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book E-Scooter | Presqu'ile Park Place</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Kabel', 'Arial Black', sans-serif;
+            color: #1a1a1a;
+            overflow-x: hidden;
+            background: #f0f0f0;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            z-index: 1001;
+            background: #e74c3c;
+            color: white;
+            padding: 1rem 2rem;
+            border: 4px solid #000;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 1.1rem;
+            box-shadow: 5px 5px 0px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 7px 7px 0px rgba(0,0,0,0.3);
+        }
+
+        .page-container {
+            min-height: 100vh;
+            padding: 8rem 5% 4rem;
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+        }
+
+        .booking-card {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            border: 6px solid #000;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 10px 10px 0px rgba(0,0,0,0.4);
+        }
+
+        .card-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 4px dashed #000;
+        }
+
+        .card-title {
+            background: #e74c3c;
+            color: white;
+            padding: 1rem 2rem;
+            border: 4px solid #000;
+            display: inline-block;
+            font-size: 2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            box-shadow: 5px 5px 0px rgba(0,0,0,0.3);
+            text-shadow: 3px 3px 0px #000;
+        }
+
+        .booking-info {
+            background: #fff5e6;
+            border: 4px solid #ffd700;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .booking-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1a3d7c;
+        }
+
+        .booking-info p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .booking-methods {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .booking-method {
+            background: #f8f9fa;
+            border: 4px solid #000;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .booking-method h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1a3d7c;
+            text-transform: uppercase;
+        }
+
+        .booking-method p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 900;
+            border: 4px solid #000;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 5px 5px 0px rgba(0,0,0,0.3);
+            display: inline-block;
+            background: #e74c3c;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 7px 7px 0px rgba(0,0,0,0.3);
+        }
+
+        .dice {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 3rem;
+            animation: roll 2s ease-in-out infinite;
+            z-index: 100;
+        }
+
+        @keyframes roll {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .back-button {
+                top: 1rem;
+                left: 1rem;
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            .page-container {
+                padding: 6rem 2% 3rem;
+            }
+
+            .booking-card {
+                padding: 2rem;
+            }
+
+            .card-title {
+                font-size: 1.5rem;
+                padding: 0.8rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dice">🎲</div>
+    
+    <a href="escooter.html" class="back-button">← Back to E-Scooters</a>
+
+    <div class="page-container">
+        <div class="booking-card">
+            <div class="card-header">
+                <div class="card-title">📅 BOOK NOW</div>
+            </div>
+
+            <div class="booking-info">
+                <h3>🛴 Ready to Ride?</h3>
+                <p><strong>Hourly Rentals Available</strong></p>
+                <p>Perfect for exploring Presqu'ile Park and the beautiful lakeshore!</p>
+            </div>
+
+            <div class="booking-methods">
+                <div class="booking-method">
+                    <h4>📞 Call to Book</h4>
+                    <p>The quickest way to reserve your e-scooter! Call us and we'll get you set up right away.</p>
+                    <a href="tel:6134032297" class="btn">CALL (613) 403-2297</a>
+                </div>
+
+                <div class="booking-method">
+                    <h4>🏪 Walk-In Welcome</h4>
+                    <p>Stop by our location at 250 Presqu'ile Parkway and we'll get you on the trails in minutes!</p>
+                    <p><strong>Hours:</strong><br>
+                    Mon-Fri: 11:00-18:30<br>
+                    Sat: 11:00-17:00<br>
+                    Sun: 12:30-16:30</p>
+                </div>
+
+                <div class="booking-method">
+                    <h4>⚠️ Important Reminder</h4>
+                    <p>Don't forget to bring your <strong>signed waiver</strong>! You can print it ahead of time from the E-Scooter page.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
