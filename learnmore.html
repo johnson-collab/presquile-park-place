@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn More | Presqu'ile Park Place</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Kabel', 'Arial Black', sans-serif;
+            color: #1a1a1a;
+            overflow-x: hidden;
+            background: #f0f0f0;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            z-index: 1001;
+            background: #9b59b6;
+            color: white;
+            padding: 1rem 2rem;
+            border: 4px solid #000;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 1.1rem;
+            box-shadow: 5px 5px 0px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 7px 7px 0px rgba(0,0,0,0.3);
+        }
+
+        .page-container {
+            min-height: 100vh;
+            padding: 8rem 5% 4rem;
+            background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+        }
+
+        .info-card {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border: 6px solid #000;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 10px 10px 0px rgba(0,0,0,0.4);
+        }
+
+        .card-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 4px dashed #000;
+        }
+
+        .card-title {
+            background: #9b59b6;
+            color: white;
+            padding: 1rem 2rem;
+            border: 4px solid #000;
+            display: inline-block;
+            font-size: 2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            box-shadow: 5px 5px 0px rgba(0,0,0,0.3);
+            text-shadow: 3px 3px 0px #000;
+        }
+
+        .intro-box {
+            background: #fff5e6;
+            border: 4px solid #ffd700;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .intro-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #1a3d7c;
+        }
+
+        .intro-box p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            font-weight: 600;
+        }
+
+        .info-section {
+            background: #f8f9fa;
+            border: 4px solid #000;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .info-section h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #9b59b6;
+            text-transform: uppercase;
+        }
+
+        .info-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .info-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-section li {
+            padding: 0.8rem 0;
+            border-bottom: 2px solid #ddd;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .info-section li:last-child {
+            border-bottom: none;
+        }
+
+        .info-section li:before {
+            content: "• ";
+            color: #9b59b6;
+            font-weight: 900;
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .pricing-card {
+            background: white;
+            border: 4px solid #000;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 4px 4px 0px rgba(0,0,0,0.2);
+        }
+
+        .pricing-card h5 {
+            font-size: 1.3rem;
+            color: #9b59b6;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .pricing-card .price {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #1a3d7c;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border: 4px solid #1a3d7c;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .highlight-box h4 {
+            font-size: 1.5rem;
+            color: #1a3d7c;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .highlight-box p {
+            font-size: 1.1rem;
+            font-weight: 600;
+            line-height: 1.6;
+        }
+
+        .faq-item {
+            background: white;
+            border: 4px solid #000;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .faq-item h5 {
+            font-size: 1.2rem;
+            color: #1a3d7c;
+            margin-bottom: 0.8rem;
+            font-weight: 900;
+        }
+
+        .faq-item p {
+            font-size: 1rem;
+            line-height: 1.6;
+            font-weight: 600;
+        }
+
+        .dice {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 3rem;
+            animation: roll 2s ease-in-out infinite;
+            z-index: 100;
+        }
+
+        @keyframes roll {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .back-button {
+                top: 1rem;
+                left: 1rem;
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            .page-container {
+                padding: 6rem 2% 3rem;
+            }
+
+            .info-card {
+                padding: 2rem;
+            }
+
+            .card-title {
+                font-size: 1.5rem;
+                padding: 0.8rem 1.5rem;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dice">🎲</div>
+    
+    <a href="escooter.html" class="back-button">← Back to E-Scooters</a>
+
+    <div class="page-container">
+        <div class="info-card">
+            <div class="card-header">
+                <div class="card-title">ℹ️ LEARN MORE</div>
+            </div>
+
+            <div class="intro-box">
+                <h3>🛴 About Our E-Scooters</h3>
+                <p>Premium electric scooters perfect for exploring Presqu'ile Provincial Park and the stunning Lake Ontario shoreline!</p>
+            </div>
+
+            <div class="info-section">
+                <h4>What's Included</h4>
+                <ul>
+                    <li>High-quality electric scooter</li>
+                    <li>Safety helmet (required)</li>
+                    <li>Lock for securing scooter</li>
+                    <li>Park trail map</li>
+                    <li>Basic safety instruction</li>
+                    <li>Emergency contact card</li>
+                </ul>
+            </div>
+
+            <div class="info-section">
+                <h4>💰 Pricing</h4>
+                <p style="text-align: center; margin-bottom: 1.5rem;">Affordable hourly rates for maximum fun!</p>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h5>1 Hour</h5>
+                        <div class="price">$XX</div>
+                    </div>
+                    <div class="pricing-card">
+                        <h5>2 Hours</h5>
+                        <div class="price">$XX</div>
+                    </div>
+                    <div class="pricing-card">
+                        <h5>Half Day</h5>
+                        <div class="price">$XX</div>
+                    </div>
+                    <div class="pricing-card">
+                        <h5>Full Day</h5>
+                        <div class="price">$XX</div>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 1rem; font-size: 0.95rem;">*Contact us for current rates and group discounts!</p>
+            </div>
+
+            <div class="highlight-box">
+                <h4>🌟 Why Choose Our E-Scooters?</h4>
+                <p>Our scooters are eco-friendly, easy to ride, and let you cover more ground than walking while still enjoying the fresh air and beautiful scenery. Perfect for families, couples, and solo adventurers!</p>
+            </div>
+
+            <div class="info-section">
+                <h4>📋 Requirements</h4>
+                <ul>
+                    <li>Must be 16+ years old (or with adult supervision)</li>
+                    <li>Valid ID required</li>
+                    <li>Signed waiver form (can print ahead)</li>
+                    <li>Helmet must be worn at all times</li>
+                    <li>Deposit may be required</li>
+                </ul>
+            </div>
+
+            <div class="info-section">
+                <h4>🏞️ Where to Ride</h4>
+                <p>Explore miles of beautiful trails including:</p>
+                <ul>
+                    <li>Lighthouse Trail - scenic waterfront path</li>
+                    <li>Marsh Boardwalk - amazing wildlife viewing</li>
+                    <li>Beach access paths</li>
+                    <li>Camping area loops</li>
+                    <li>Nature center routes</li>
+                </ul>
+            </div>
+
+            <div class="info-section">
+                <h4>❓ Frequently Asked Questions</h4>
+                
+                <div class="faq-item">
+                    <h5>How fast do the scooters go?</h5>
+                    <p>Our scooters have a top speed of 20 km/h, which is perfect for park trails and safe for all riders.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h5>How far can I go on a single charge?</h5>
+                    <p>Our scooters can travel approximately 15-20km on a full charge, more than enough to explore the entire park!</p>
+                </div>
+
+                <div class="faq-item">
+                    <h5>What if I have mechanical issues?</h5>
+                    <p>Call us immediately at (613) 403-2297 and we'll assist you. Don't attempt repairs yourself.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h5>Can I take the scooter outside the park?</h5>
+                    <p>No, scooters must stay within Presqu'ile Provincial Park boundaries and designated trails only.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h5>What happens if it rains?</h5>
+                    <p>Please return the scooter early if weather turns bad. We'll credit unused time for a future rental.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h5>Do you offer group discounts?</h5>
+                    <p>Yes! Contact us for special rates for groups of 4 or more scooters.</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h4>📞 Questions?</h4>
+                <p>Call us at <strong>(613) 403-2297</strong> or stop by 250 Presqu'ile Parkway!</p>
+                <p style="margin-top: 1rem;">We're here to help make your park experience amazing!</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
