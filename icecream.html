@@ -250,6 +250,16 @@
             margin-bottom: 0.5rem;
         }
 
+        /* Image styling for flavor cards */
+        .flavor-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 3px solid #000;
+            margin-bottom: 0.5rem;
+        }
+
         .flavor-name {
             font-weight: 900;
             font-size: 1.1rem;
@@ -293,6 +303,16 @@
             padding: 2rem;
             text-align: center;
             box-shadow: 4px 4px 0px rgba(0,0,0,0.2);
+        }
+
+        /* Image styling for item cards */
+        .item-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 3px solid #000;
+            margin-bottom: 1rem;
         }
 
         .item-card h5 {
@@ -442,16 +462,20 @@
                         <h4 style="text-align: center; font-size: 2rem; margin: 2rem 0; color: #1a3d7c;">POPULAR FLAVORS</h4>
                         
                         <div class="flavors-grid">
+                            <!-- TO ADD IMAGES: Replace the emoji line with: <img src="YOUR_IMAGE_PATH.jpg" alt="Chocolate" class="flavor-image"> -->
                             <div class="flavor-card">
                                 <div class="flavor-icon">🍫</div>
+                                <!-- Example: <img src="images/chocolate.jpg" alt="Chocolate Ice Cream" class="flavor-image"> -->
                                 <div class="flavor-name">Chocolate</div>
                             </div>
                             <div class="flavor-card">
                                 <div class="flavor-icon">🍦</div>
+                                <!-- Example: <img src="images/vanilla.jpg" alt="Vanilla Ice Cream" class="flavor-image"> -->
                                 <div class="flavor-name">Vanilla</div>
                             </div>
                             <div class="flavor-card">
                                 <div class="flavor-icon">🍓</div>
+                                <!-- Example: <img src="images/strawberry.jpg" alt="Strawberry Ice Cream" class="flavor-image"> -->
                                 <div class="flavor-name">Strawberry</div>
                             </div>
                             <div class="flavor-card">
@@ -509,12 +533,15 @@
                         <p>Indulge in our delicious specialty treats made with premium Kawartha ice cream!</p>
                         
                         <div class="items-list">
+                            <!-- TO ADD IMAGES: Add <img src="YOUR_IMAGE_PATH.jpg" alt="Sundaes" class="item-image"> before the emoji -->
                             <div class="item-card">
+                                <!-- Example: <img src="images/sundae.jpg" alt="Ice Cream Sundae" class="item-image"> -->
                                 <div class="flavor-icon">🍨</div>
                                 <h5>Sundaes</h5>
                                 <p>Classic sundaes with your choice of toppings</p>
                             </div>
                             <div class="item-card">
+                                <!-- Example: <img src="images/milkshake.jpg" alt="Milkshake" class="item-image"> -->
                                 <div class="flavor-icon">🥤</div>
                                 <h5>Milkshakes</h5>
                                 <p>Thick and creamy shakes in any flavor</p>
@@ -561,7 +588,9 @@
                         <p>Stay refreshed with our selection of cold beverages perfect for a hot summer day at the park!</p>
                         
                         <div class="items-list">
+                            <!-- TO ADD IMAGES: Add <img src="YOUR_IMAGE_PATH.jpg" alt="Soft Drinks" class="item-image"> before the emoji -->
                             <div class="item-card">
+                                <!-- Example: <img src="images/sodas.jpg" alt="Soft Drinks" class="item-image"> -->
                                 <div class="flavor-icon">🥤</div>
                                 <h5>Soft Drinks</h5>
                                 <p>Coca-Cola, Sprite, Root Beer, and more</p>
