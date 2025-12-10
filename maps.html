@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maps | Presqu'ile Park Place</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Kabel', 'Arial Black', sans-serif;
+            color: #1a1a1a;
+            overflow-x: hidden;
+            background: #f0f0f0;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            z-index: 1001;
+            background: #4a6fa5;
+            color: white;
+            padding: 1rem 2rem;
+            border: 4px solid #000;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 1.1rem;
+            box-shadow: 5px 5px 0px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 7px 7px 0px rgba(0,0,0,0.3);
+        }
+
+        .page-container {
+            min-height: 100vh;
+            padding: 8rem 5% 4rem;
+            background: linear-gradient(135deg, #4a6fa5 0%, #2c5aa0 100%);
+        }
+
+        .maps-card {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border: 6px solid #000;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 10px 10px 0px rgba(0,0,0,0.4);
+        }
+
+        .card-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 4px dashed #000;
+        }
+
+        .card-title {
+            background: #4a6fa5;
+            color: white;
+            padding: 1rem 2rem;
+            border: 4px solid #000;
+            display: inline-block;
+            font-size: 2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            box-shadow: 5px 5px 0px rgba(0,0,0,0.3);
+            text-shadow: 3px 3px 0px #000;
+        }
+
+        .location-info {
+            background: #fff5e6;
+            border: 4px solid #ffd700;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .location-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #1a3d7c;
+        }
+
+        .location-info p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .map-section {
+            background: #f8f9fa;
+            border: 4px solid #000;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .map-section h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #1a3d7c;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border: 4px solid #2ecc71;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .map-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .map-link {
+            background: #4a6fa5;
+            color: white;
+            padding: 1rem;
+            border: 4px solid #000;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 900;
+            text-align: center;
+            box-shadow: 4px 4px 0px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .map-link:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px rgba(0,0,0,0.3);
+            background: #5a7fb5;
+        }
+
+        .directions-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .directions-list li {
+            padding: 1rem;
+            border-bottom: 2px solid #ddd;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .directions-list li:last-child {
+            border-bottom: none;
+        }
+
+        .directions-list li:before {
+            content: "📍 ";
+            margin-right: 0.5rem;
+        }
+
+        .dice {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 3rem;
+            animation: roll 2s ease-in-out infinite;
+            z-index: 100;
+        }
+
+        @keyframes roll {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .back-button {
+                top: 1rem;
+                left: 1rem;
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            .page-container {
+                padding: 6rem 2% 3rem;
+            }
+
+            .maps-card {
+                padding: 2rem;
+            }
+
+            .card-title {
+                font-size: 1.5rem;
+                padding: 0.8rem 1.5rem;
+            }
+
+            .map-placeholder {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dice">🎲</div>
+    
+    <a href="escooter.html" class="back-button">← Back to E-Scooters</a>
+
+    <div class="page-container">
+        <div class="maps-card">
+            <div class="card-header">
+                <div class="card-title">🗺️ MAPS & DIRECTIONS</div>
+            </div>
+
+            <div class="location-info">
+                <h3>📍 Find Us Here</h3>
+                <p><strong>250 Presqu'ile Parkway</strong></p>
+                <p>Brighton, ON K8V 1H0</p>
+                <p style="margin-top: 1rem;">Just steps from Presqu'ile Provincial Park entrance!</p>
+            </div>
+
+            <div class="map-section">
+                <h4>Location Map</h4>
+                <div class="map-placeholder">
+                    🗺️<br>
+                    <span style="font-size: 1.2rem; display: block; margin-top: 1rem;">Google Maps Embed Here</span>
+                </div>
+                <div class="map-links">
+                    <a href="https://www.google.com/maps/place/250+Presqu'ile+Pkwy,+Brighton,+ON+K0K+1H0/@44.006,-77.747" target="_blank" class="map-link">Open in Google Maps</a>
+                    <a href="https://maps.apple.com/?address=250+Presqu'ile+Pkwy,+Brighton,+ON+K0K+1H0" target="_blank" class="map-link">Open in Apple Maps</a>
+                </div>
+            </div>
+
+            <div class="map-section">
+                <h4>Getting Here</h4>
+                <ul class="directions-list">
+                    <li>From Brighton: Head south on County Road 64 toward the park</li>
+                    <li>From Highway 401: Take Exit 509 to Brighton, then follow signs to Presqu'ile Park</li>
+                    <li>Look for us at the corner location right before the park entrance</li>
+                    <li>FREE PARKING available on-site</li>
+                </ul>
+            </div>
+
+            <div class="map-section">
+                <h4>🏞️ Park Trail Map</h4>
+                <p style="text-align: center; font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem;">
+                    Explore all the amazing trails and paths at Presqu'ile Provincial Park with your e-scooter!
+                </p>
+                <div class="map-placeholder" style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-color: #4a6fa5;">
+                    🌲🚴‍♂️🌊<br>
+                    <span style="font-size: 1.2rem; display: block; margin-top: 1rem;">Park Trail Map Here</span>
+                </div>
+                <p style="text-align: center; margin-top: 1rem; font-weight: 600;">
+                    Ask us for a detailed trail map when you pick up your e-scooter!
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
